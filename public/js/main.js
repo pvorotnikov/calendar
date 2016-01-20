@@ -266,10 +266,34 @@ $(document).ready(function() {
         modal: "#events-modal",
         modal_type: "template",
         modal_title: function(e) {
-            return e.title
+            return e.title;
         }
     });
 
     $('#calendarHeading').text(calendar.getTitle());
+
+    setInterval(function() {
+
+        $.ajax({
+            type: 'GET',
+            url: '/ajax/calendar.php?do=reminders',
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                $('#reminders').empty();
+
+                data.data.forEach(function(event) {
+                    var start = new Date(event.start);
+                    var now = new Date();
+                    var difference = new Date(start - now);
+                    $('#reminders').append('<div class="alert alert-success" role="alert">' + event.name + ' (in ' + difference.getMinutes() + ' minutes)</div>');
+                });
+            },
+            error: function(xhr, status, err) {
+                console.error(err.toString());
+            }
+        });
+
+    }, 10000);
 
 });

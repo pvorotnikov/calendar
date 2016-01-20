@@ -40,3 +40,7 @@
 #cal-slide-content:hover {
     background: #009688;
 }
+
+#reminders .alert {
+    margin: 5px 20px;
+}

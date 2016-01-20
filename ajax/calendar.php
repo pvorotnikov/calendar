@@ -147,6 +147,27 @@ switch ($_GET['do']) {
         echo json_encode($response);
         break;
 
+    case 'reminders':
+
+        $threshold = 10 * 60; // 10 minutes
+        $now = date('Y-m-d H:i:s', time());
+        $future = date('Y-m-d H:i:s', time() + $threshold);
+
+        $query = "SELECT * FROM event WHERE userId = " . $_SESSION['userid'] . " AND start >= '$now' AND start < '$future' ORDER BY start";
+        if ($result = $db->conn->query($query)) {
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                array_push($data, array('name' => $row['name'], 'url' => '/?page=event&id=' . $row['id'], 'start' => $row['start']));
+            }
+            $response = array('status' => 'ok', 'data' => $data);
+            $result->close();
+        } else {
+            $response = array('status' => 'error', 'error' => 'BAD_REQUEST', 'errorMessage' => $db->conn->error);
+        }
+
+        echo json_encode($response);
+        break;
+
     /**
      * Default request handler.
      * Respond with 400
