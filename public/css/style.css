@@ -1,0 +1,42 @@
+#page_404 {
+    width: 500px;
+    margin: 30px auto;
+}
+
+#loginForm, #signupForm, #settingsForm {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px 20px 10px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#loginForm .alert, #signupForm .alert, #settingsForm .alert {
+    margin-top: 20px;
+}
+
+#eventForm, #eventEditForm {
+    width: 700px;
+    margin: 0 auto;
+    padding: 20px 20px 10px;
+}
+
+#eventForm .width-100,
+#eventEditForm .width-100 {
+    width: 100%;
+}
+
+#eventForm .width-100 input,
+#eventForm .width-100 textarea,
+#eventEditForm .width-100 input,
+#eventEditForm .width-100 textarea {
+    width: 100%;
+}
+
+#cal-slide-content {
+    background: #009688;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+#cal-slide-content:hover {
+    background: #009688;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "calendar",
+  "homepage": "https://github.com/pvorotnikov/calendar",
+  "description": "",
+  "main": "index.php",
+  "moduleType": [],
+  "authors": [
+    "Petar Vorotnikov"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-calendar": "~0.2.4"
+  }
+}

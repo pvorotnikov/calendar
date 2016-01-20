@@ -1,0 +1,11 @@
+# Mac OS X files
+.DS_Store
+
+# configuration
+config.php
+
+# bower libraries
+public/lib
+
+# ftpsync
+ftpsync.settings
